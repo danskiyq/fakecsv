@@ -151,5 +151,4 @@ CELERY_BROKER_URL = 'redis://:p71491f35d5901d262cac58655f3c6a859cb2addc23e69bc1c
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_TASK_SERIALIZER = 'json'
 
-
 django_heroku.settings(locals())
