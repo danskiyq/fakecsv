@@ -1,11 +1,14 @@
 import os
+from time import sleep
 
 from django.core.serializers import serialize
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from .owner import OwnerListView, OwnerUpdateView, OwnerDeleteView, parse_instructions, save_schema, gen_fake_csv
+from fakecsv.tasks import generate_fake_data
 
 
 class SchemaCreateView(LoginRequiredMixin, CreateView):
@@ -73,7 +76,5 @@ class GenerateCsvView(OwnerListView):
     def post(self, request):
         owner = request.user
         rows = int(request.POST.get('rows'))
-
-        gen_fake_csv(owner, rows)
-
+        generate_fake_data.delay(owner.id, rows)
         return super(GenerateCsvView, self).get(request)

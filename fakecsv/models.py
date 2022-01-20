@@ -18,6 +18,7 @@ class Schema(models.Model):
     created_date = models.DateField(null=True)
     file = models.FileField()
 
+
     def __str__(self):
         return self.name
 

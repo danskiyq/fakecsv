@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     # Pip packages
     'bootstrap5',
     'faker',
+    'celery',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +146,10 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = 'redis://:p71491f35d5901d262cac58655f3c6a859cb2addc23e69bc1c8732a873e46845c@ec2-3-248-5-190.eu-west-1.compute.amazonaws.com:9560'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_TASK_SERIALIZER = 'json'
+
+
 django_heroku.settings(locals())
