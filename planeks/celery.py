@@ -10,7 +10,8 @@ BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
 
 app = Celery('planeks')
 
-app.config_from_object('django.conf:settings', namespace='CELERY')
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
 
 app.autodiscover_tasks()
