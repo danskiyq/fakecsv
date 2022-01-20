@@ -141,4 +141,5 @@ def gen_fake_csv(owner, rows):
                         for i in csv_objects]
                 writer.writerow(data)
         schema.created_date = str(datetime.date.today())
+        schema.save()
 
