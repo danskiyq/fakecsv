@@ -10,8 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'planeks.settings')
 
 app = Celery('planeks')
 
-app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
-                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'])
 
 
 app.autodiscover_tasks()
