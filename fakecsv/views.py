@@ -76,6 +76,6 @@ class GenerateCsvView(OwnerListView):
     def post(self, request):
         owner = request.user
         rows = int(request.POST.get('rows'))
-        gen_fake_csv(owner.id, rows)
+        generate_fake_data.delay(owner.id, rows)
         return super(GenerateCsvView, self).get(request)
 
