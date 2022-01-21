@@ -6,11 +6,11 @@ from celery import Celery
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'planeks.settings')
-# BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
-
+BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
+REDIS_URL = 'redis://localhost:6379'
 app = Celery('planeks')
 
-app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+app.conf.update(BROKER_URL=REDIS_URL,
                 CELERY_RESULT_BACKEND='django-db')
 
 
