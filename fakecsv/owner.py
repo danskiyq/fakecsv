@@ -112,7 +112,7 @@ def save_schema(items, owner, schema=None, update=False):
     schema.file = ''
 
     schema.save()
-    path = str(owner.id) + f'/{schema.name}.csv'
+    path = r'media\\' + str(owner.id) + f'/{schema.name}.csv'
     schema.file = path
     schema.save()
     path = r'media\\' + str(owner.id)
