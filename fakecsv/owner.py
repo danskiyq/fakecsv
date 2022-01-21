@@ -115,7 +115,7 @@ def save_schema(items, owner, schema=None, update=False):
     path = str(owner.id) + f'/{schema.name}.csv'
     schema.file = path
     schema.save()
-    path = settings.MEDIA_URL + '\\' + str(owner.id)
+    path = settings.MEDIA_URL + str(owner.id)
     # checking if we need to create new csv of not
     if not update:
         Path(path).mkdir(exist_ok=True)
