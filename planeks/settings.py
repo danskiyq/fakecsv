@@ -152,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL = 'redis://:pcb44f76e94e154dbce3434a095cbd24b2cfb733977bb2567795b8a503d4e7b1a@ec2-52-31-240-239.eu-west-1.compute.amazonaws.com:9619'
 
 CELERY_ACCEPT_CONTENT = ['json']
-CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'redis://:pcb44f76e94e154dbce3434a095cbd24b2cfb733977bb2567795b8a503d4e7b1a@ec2-52-31-240-239.eu-west-1.compute.amazonaws.com:9619'
 CELERY_TASK_SERIALIZER = 'json'
 
 django_heroku.settings(locals())

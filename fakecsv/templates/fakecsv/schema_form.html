@@ -13,7 +13,7 @@
         </div>
         <div class="col-5"></div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3" onclick="return checkInput()">Create schema</button>
+                <button type="submit" class="btn btn-primary mb-3" onclick="return checkInput()">{{ mode }} schema</button>
             </div>
     </div>
         <br/>
@@ -205,6 +205,10 @@
                     if(!(document.getElementById('schema-columns').children[i].children[0].children[2].children[0].children[0].children[1].value && document.getElementById('schema-columns').children[i].children[0].children[3].children[0].children[0].children[1].value)){
                         alert('columns with range values must include minimal and maximum value');
                         return false;
+                    }
+                    else if(!(document.getElementById('schema-columns').children[i].children[0].children[2].children[0].children[0].children[1].value < document.getElementById('schema-columns').children[i].children[0].children[3].children[0].children[0].children[1].value)){
+                        alert('minimal value must be less than maximum value');
+                            return false;
                     }
                 }
                 else if(!(names_arr.includes(name))){

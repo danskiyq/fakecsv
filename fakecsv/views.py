@@ -21,6 +21,7 @@ class SchemaCreateView(LoginRequiredMixin, CreateView):
         context['separator'] = None
         context['string'] = None
         context['objects'] = None
+        context['mode'] = 'Create'
         return context
 
     def post(self, request, **kwargs):
@@ -58,6 +59,7 @@ class SchemaUpdateView(OwnerUpdateView):
         objects = parse_instructions(self.get_object().read_instructions)
         context['objects'] = objects
         context['names'] = serialize("json", Schema.objects.filter(owner=self.request.user))
+        context['mode'] = 'Update'
         return context
 
     def post(self, request, **kwargs):
