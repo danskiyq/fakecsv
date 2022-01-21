@@ -16,7 +16,7 @@ class Schema(models.Model):
     read_instructions = models.CharField(max_length=1000)
     modified_date = models.DateField(default=datetime.date.today)
     created_date = models.DateField(null=True)
-    file = models.FileField(upload_to='media')
+    file = models.FileField()
 
 
     def __str__(self):

@@ -27,9 +27,8 @@
         <td><a href="{% url 'fakecsv:update' schema.id %}">{{ schema.name }}</a></td>
         <td>{{ schema.created_date|default_if_none:'Never' }}</td>
 {#        <td><div id="celery-result"></div></td>#}
-        <td><a href="{{ schema.file.url }}">Download</a></td>
-        <script>console.log("{{ schema.file.url|safe }}")</script>
-{#    <script src="{% static 'celery_progress/celery_progress.js' %}"></script>#}
+        <td><a href="{{  schema.file.url }}">Download</a></td>
+    <script>console.log('{{ schema.file.url|safe }}')</script>
     </tr>
   {% endfor %}
   </tbody>
